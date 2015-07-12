@@ -24,8 +24,8 @@ public class TweetTest {
     @Test
     public void shouldReturnTrueIfTheTweetsAreTheSame(){
         Tweet maheshTweeted = new Tweet("mahesh", "Look up to the sky and seeeee");
-        Tweet maheshTweetedAgain = new Tweet("mahesh", "Look up to the sky and seeeee");
-        assertEquals(true,maheshTweeted.equals(maheshTweetedAgain));
+        Tweet maheshTweetedToo = new Tweet("mahesh", "Look up to the sky and seeeee");
+        assertEquals(true,maheshTweeted.equals(maheshTweetedToo));
     }
 
     @Test
