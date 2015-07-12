@@ -21,22 +21,22 @@ public class TestTwitterController extends TestCase {
         man1Tweeted = new Tweet("man1", "Is this the real life?");
         man2Tweeted = new Tweet("man2","Is this just fanta-sea?");
 
-        //Mock the Twitter interface
+        // Create a Mock of the Twitter interface
         twitterMocked = mock(Twitter.class);
 
-        //This is the class that I have created and I want to test it
+        // Testing the created class
         twitterController = new TwitterController(twitterMocked);
     }
 
     @Test
-    public void testReadFeedAndTransformFeed(){
+    public void testReadandTransformFeed(){
 
         when(twitterMocked.readFeed()).thenReturn("@man1 Is this the real life?|@man2 Is this just fanta-sea?");
         assertEquals(asList(man1Tweeted, man2Tweeted), twitterController.readFeed());
     }
 
     @Test
-    public void testASuccessfulPostToTwitterShouldReturnSuccessStatus() {
+    public void testSuccessfulPostToTwitter() {
         //Create a Mock of the Twitter interface
         Twitter twitterMocked = mock(Twitter.class);
 
@@ -53,13 +53,13 @@ public class TestTwitterController extends TestCase {
     }
 
     @Test
-    public void testAFailedPostToTwitterShouldReturnFailedStatus() {
-        //Mock the Twitter interface
+    public void testFailedPostToTwitter() {
+        //Create a Mock of the Twitter interface
         Twitter twitterMocked = mock(Twitter.class);
 
-        //This is the class that I have created and I want to test it
+        // Testing the created class
         TwitterController twitterController = new TwitterController(twitterMocked);
-        String message = "That's why they call me Mr.Fareinheit";
+        String message = "That's why they call me Mr.Farenheit";
         when(twitterMocked.post(any(String.class))).thenReturn(false);
 
         boolean posted = twitterController.post(message);
