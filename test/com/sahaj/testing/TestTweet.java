@@ -8,30 +8,30 @@ import static org.junit.Assert.*;
 public class TweetTest {
 
     @Test
-    public void shouldReturnWhoTweeted(){
+    public void shouldReturnTweeter(){
         Tweet maheshTweeted = new Tweet("mahesh", "Open your eyes");
 
         assertEquals("mahesh",maheshTweeted.whoTweeted());
     }
 
     @Test
-    public void shouldReturnTweetCorrectly(){
+    public void shouldReturnIfTweetWasTweetedCorrectly(){
         Tweet maheshTweeted = new Tweet("mahesh", "Look up to the sky and seeeee");
 
         assertEquals("Look up to the sky and seeeee",maheshTweeted.getTweet());
     }
 
     @Test
-    public void shouldReturnTrueIfTheTweetsAreTheSame(){
+    public void testIfTheTweetsAreTheSame(){
         Tweet maheshTweeted = new Tweet("mahesh", "Look up to the sky and seeeee");
         Tweet maheshTweetedToo = new Tweet("mahesh", "Look up to the sky and seeeee");
         assertEquals(true,maheshTweeted.equals(maheshTweetedToo));
     }
 
     @Test
-    public void shouldReturnFalseIfTheTweetsAreTheSame(){
+    public void testIfTweetsAreNotTheSame(){
         Tweet maheshTweeted = new Tweet("mahesh", "Look up to the sky and seeeee");
-        Tweet maheshTweetedAgain = new Tweet("mahesh", "I'm just a poor boy, I need no sympathy");
-        assertEquals(false,maheshTweeted.equals(maheshTweetedAgain));
+        Tweet maheshTweetedToo = new Tweet("mahesh", "I'm just a poor boy, I need no sympathy");
+        assertEquals(false,maheshTweeted.equals(maheshTweetedToo));
     }
 }
